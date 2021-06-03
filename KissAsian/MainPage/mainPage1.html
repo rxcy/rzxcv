@@ -226,7 +226,7 @@
 		for(var x = 0; x < films.length; x++) {
             let list = films[x];
             let title = list.querySelector('a').title;
-            var link = baseURL + list.querySelector('a').href;
+            var link =  list.querySelector('a').href;
             link = new ModuleRequest(link, 'get', emptyKeyValue, null);
             var image = list.querySelector('img').dataset.original;
             image = new ModuleRequest(image, 'get', emptyKeyValue, null);
