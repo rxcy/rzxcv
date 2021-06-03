@@ -227,7 +227,7 @@ const DefaultLayouts = {
                 try  {
                     let list = lastAdded[x];
                     let title = list.querySelector('a img').alt;
-                    var link = list.querySelector('a').href;
+                    var link = baseURL + list.querySelector('a').href;
                     link = new ModuleRequest(link,'get',emptyKeyValue,null);
                     var image = list.querySelector('a img').dataset.original;
                     image =  new ModuleRequest(image,'get',emptyKeyValue,null);
@@ -238,7 +238,7 @@ const DefaultLayouts = {
             }
         var testLayout = new Layout(new Insets(10,10,10,10),1,2,3,1,500,new Size(400,400),new Ratio('width',4,11),new Size(0,0),10,10);
         output.push(new Output(CellDesings.wide11,Orientation.vertical,DefaultLayouts.none,Paging.none,new Section('',false),testLayout,lastAddedArray));;   
-     if you are going to use ""
+    
 
     let searchPageObject = new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output);
 
