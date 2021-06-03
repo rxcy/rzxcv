@@ -154,7 +154,7 @@
   "search": [
     {
       "request": {
-        "url": "https://kissasian.la/?s=<search>",
+        "url": "",
         "method": "get",
         "headers": [
           {
