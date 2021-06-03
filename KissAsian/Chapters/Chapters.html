@@ -75,7 +75,7 @@
  var buttonBox = document.querySelector('div.w-server').querySelectorAll('div');
 for(var x = 0; x < buttonBox.length; x++) {
 	var link = buttonBox[x].dataset.server;
-	if(!link.includes('asianload') && !link.includes('streamtape')) {
+	if(!link.includes('serverslist Standard Server active') && !link.includes('serverslist Mp4upload')) {
 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
 }
