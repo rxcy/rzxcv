@@ -219,10 +219,26 @@ const DefaultLayouts = {
 
     let output = [];
     let emptyKeyValue = [new KeyValue('','')];
-
-    // Fill the output array with output objects.
-    // Scripts cant use comments so delete them before loading them into KETSU.
-    // add a \ if you are going to use ""
+	var baseURL = 'https://kissasian.la/';
+    
+        var lastAdded = document.querySelector('ul.box').querySelectorAll('li');
+        let lastAddedArray = [];
+            for (var x = 0; x < lastAdded.length;x++) {
+                try  {
+                    let list = lastAdded[x];
+                    let title = list.querySelector('a img').alt;
+                    var link =  baseURL + list.querySelector('a').href;
+                    link = new ModuleRequest(link,'get',emptyKeyValue,null);
+                    var image = list.querySelector('a img').dataset.original;
+                    image =  new ModuleRequest(image,'get',emptyKeyValue,null);
+                    var finalData = new Data(image,title,'','','Drama','unknown','unknown',false,link);
+                    lastAddedArray.push(finalData);
+                } catch (e) {}
+        
+            }
+        var testLayout = new Layout(new Insets(10,10,10,10),1,2,3,1,500,new Size(400,400),new Ratio('width',4,11),new Size(0,0),10,10);
+        output.push(new Output(CellDesings.wide11,Orientation.vertical,DefaultLayouts.none,Paging.none,new Section('',false),testLayout,lastAddedArray));;   
+     if you are going to use ""
 
     let searchPageObject = new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output);
 
