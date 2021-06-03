@@ -86,9 +86,31 @@ var image = '';
 image = new ModuleRequest(image,'get',emptyKeyValue,null);
 var genresArray = [];
 
-// Fill the output object below with data. 
-    // Scripts cant use comments so delete them before loading them into KETSU.
-    // add a \ if you are going to use ""
+    var baseURL = 'https://kissasian.la/';
+
+    var episodes = [];
+    var type = 'Drama';
+    var status = document.querySelector('.info').textContent.match(/Status: .+/g)[0].replace('Status: ','').trim();
+    var lang = document.querySelector('.info').textContent.match(/Country: .+/g)[0].replace('Country: ','').trim();
+    var genres = Array.from(document.querySelector('.info').textContent.match(/Genre: .+/g)[0].replace('Genre: ','').split(';'));
+    var desc = '';
+    var title = document.querySelector('.info h1').textContent;
+    var image = document.querySelector('.img img').src;
+    image = new ModuleRequest(image,'get',emptyKeyValue,null);
+    
+    var episode = document.querySelector('.list').querySelectorAll('li');
+    for(var i = episode.length - 1 ; i >= 0 ; i--) {
+        var fixedLink = baseURL + episode[i].querySelector('a').href ;
+        let chapter = new Chapter('Episode ' + (episode.length - i),new ModuleRequest(fixedLink,'get',emptyKeyValue,null),false);
+        episodes.push(chapter);
+    }
+
+    try {
+      desc = document.querySelector('.info').textContent.match(/ Depion: \\n        \\n        .+/g)[0].replace(' Depion: \\n        \\n        ','');
+    } catch {} 
+    try{
+      desc = document.querySelector('.info').textContent.match(/Depion: \\n.+/g)[0].replace('Depion: \\n        ','');
+    } catch{}
 
 let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, 'Anime', type, 'Eps: '  + episodes.length, episodes));
 var finalJson = JSON.stringify(infoPageObject);
