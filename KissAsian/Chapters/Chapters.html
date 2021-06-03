@@ -72,10 +72,10 @@
     
     var emptyKeyValue = [new KeyValue('', '')];
 
- var buttonBox = document.querySelector('div.w-server').querySelectorAll('div');
+ var buttonBox = document.querySelector('#w-server').querySelectorAll('div');
 for(var x = 0; x < buttonBox.length; x++) {
 	var link = buttonBox[x].dataset.server;
-	if(!link.includes('serverslist Standard Server active') && !link.includes('serverslist Mp4upload')) {
+	if(!link.includes('Standard Server') && !link.includes('Streamtape')) {
 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
 }
