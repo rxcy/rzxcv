@@ -227,7 +227,7 @@ const DefaultLayouts = {
                 try  {
                     let list = lastAdded[x];
                     let title = list.querySelector('a img').alt;
-                    var link = baseURL + list.querySelector('a').href;
+                    var link =  list.querySelector('a').href;
                     link = new ModuleRequest(link,'get',emptyKeyValue,null);
                     var image = list.querySelector('a img').dataset.original;
                     image =  new ModuleRequest(image,'get',emptyKeyValue,null);
