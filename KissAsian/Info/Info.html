@@ -93,7 +93,7 @@ var genresArray = [];
     var status = document.querySelector('.drama-details').textContent.match(/Status: .+/g)[0].replace('Status: ','').trim();
     var lang = document.querySelector('.drama-details').textContent.match(/Country: .+/g)[0].replace('Country: ','').trim();
     var genres = Array.from(document.querySelector('.drama-details').textContent.match(/Genres: .+/g)[0].replace('Genres: ','').split(','));
-   var desc = document.querySelector('.synopsis').textContent.replace('Synopsis:','');
+    var desc = '';
     var title = document.querySelector('.drama-details header h1').textContent;
     var image = document.querySelector('.drama-thumbnail a img').dataset.original;
     image = new ModuleRequest(image,'get',emptyKeyValue,null);
@@ -110,7 +110,7 @@ var genresArray = [];
 
 
  
-    
+      desc = document.querySelector('.drama-details').textContent.match(/Synopsis: .+/g)[0].replace('Synopsis: \\n        ','');
   
 
 let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, lang + ' | ' + status, '', type, 'Eps: '  + episodes.length, episodes));
