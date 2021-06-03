@@ -6,7 +6,7 @@
     "developer": "R",
     "moduleID": "RASFASCMA3",
     "moduleImage": "https://netstorage-yen.akamaized.net/images/11084a43efde1376.png",
-    "moduleVersion": 1.3,
+    "moduleVersion": 1.4,
     "moduleLenguage": "ENG",
     "moduleType": "Video",
     "baseURL": "https://kissasian.la/",
@@ -164,7 +164,7 @@
         ],
         "httpBody": null
       },
-      "separator": "",
+      "separator": "%20",
       "extra": {
         "commands": [
           {
