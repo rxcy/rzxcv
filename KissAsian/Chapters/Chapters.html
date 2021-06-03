@@ -72,9 +72,9 @@
     
     var emptyKeyValue = [new KeyValue('', '')];
 
- var buttonBox = document.querySelector('div.anime_muti_link').querySelectorAll('li');
+ var buttonBox = document.querySelector('div.w-server').querySelectorAll('div');
 for(var x = 0; x < buttonBox.length; x++) {
-	var link = buttonBox[x].dataset.video;
+	var link = buttonBox[x].dataset.server;
 	if(!link.includes('asianload') && !link.includes('streamtape')) {
 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
