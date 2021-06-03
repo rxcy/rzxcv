@@ -221,15 +221,15 @@ const DefaultLayouts = {
     let emptyKeyValue = [new KeyValue('','')];
 	var baseURL = 'https://kissasian.la/';
     
-        var lastAdded = document.querySelector('ul.box').querySelectorAll('li');
+        var lastAdded = document.querySelector('ul.list-thumb').querySelectorAll('li');
         let lastAddedArray = [];
             for (var x = 0; x < lastAdded.length;x++) {
                 try  {
                     let list = lastAdded[x];
-                    let title = list.querySelector('a').title;
+                    let title = list.querySelector('figure a').title;
                     var link = baseURL + list.querySelector('a').href;
                     link = new ModuleRequest(link,'get',emptyKeyValue,null);
-                    var image = list.querySelector('a img').dataset.original;
+                    var image = list.querySelector('figure a img').dataset.original;
                     image =  new ModuleRequest(image,'get',emptyKeyValue,null);
                     var finalData = new Data(image,title,'','','Drama','unknown','unknown',false,link);
                     lastAddedArray.push(finalData);
